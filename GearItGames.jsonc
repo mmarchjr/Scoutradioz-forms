@@ -1,0 +1,184 @@
+[
+  {
+    "type": "header",
+    "label": "Autonomous"
+  },
+  {
+    "type": "multiselect",
+    "label": "Auto Movement",
+    "options": [
+      "Moved within starting zone",
+      "Moved out of starting zone",
+      "Not attempted"
+    ],
+    "id": "autoMovement"
+  },
+  {
+    "type": "counter",
+    "label": "Soccer balls scored",
+    "id": "autoSoccerBallsScored",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Footballs scored",
+    "id": "autoFootballsScored",
+    "allow_negative": false,
+    "variant": "standard"
+  }, 
+  // Auto Formulas
+  {
+    "type": "derived",
+    "formula": "autoSoccerBallsScored + autoFootballsScored",
+    "id": "autoTotalBalls"
+  },
+  {
+    "type": "derived",
+    "formula": "8 * autoTotalBalls",
+    "id": "autoTotalBallPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "multiselect(autoMovement, 'Moved within starting zone', 0, 'Moved out of starting zone', 4, 'Not attempted', 0)",
+    "id": "autoLeavePoints"
+  },
+  {
+    "type": "derived",
+    "formula": "autoTotalBallPoints + autoLeavePoints",
+    "id": "totalAutoPoints"
+  },
+
+  //Teleop
+  {
+    "type": "spacer"
+  },
+  {
+    "type": "header",
+    "label": "Teleop"
+  },
+  {
+    "type": "counter",
+    "label": "How many attempted balls scored in processor",
+    "id": "teleopAttemptedBallsScored",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Soccer balls scored",
+    "id": "teleopSoccerBallsScored",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Footballs scored",
+    "id": "teleopFootballsScored",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Debris scored in dump",
+    "id": "teleopDebrisScored",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Balls in dump",
+    "id": "ballsInDump",
+    "allow_negative": false,
+    "variant": "bad"
+  },
+  {
+    "type": "counter",
+    "label": "Contact penalties",
+    "id": "contactPenalties",
+    "allow_negative": false,
+    "variant": "bad"
+  },
+  //Teleop Formulas
+  {
+    "type": "derived",
+    "formula": "teleopSoccerBallsScored + teleopFootballsScored",
+    "id": "teleopBallsScored"
+  },
+  {
+    "type": "derived",
+    "formula": "4*teleopBallsScored",
+    "id": "teleopBallPointsScored"
+  },
+  {
+    "type": "derived",
+    "formula": "min(teleopDebrisScored,6)",
+    "id": "teleopDebrisPointsScored"
+  },
+  {
+    "type": "derived",
+    "formula": "(0 - 1) * ballsInDump",
+    "id": "ballsInDumpPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "(0 - 4) * contactPenalties",
+    "id": "contactPenaltyPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "teleopBallPointsScored + teleopDebrisPointsScored + ballsInDumpPoints + contactPenaltyPoints",
+    "id": "totalTeleopPoints"
+  },
+
+  //Post Match
+  {
+    "type": "spacer"
+  },
+  {
+    "type": "header",
+    "label": "Post-Match"
+  },
+  {
+    "type": "checkbox",
+    "label": "Excessive penalties/ Redcard",
+    "id": "excessivePenalties"
+  },
+  {
+    "type": "slider",
+    "label": "Driver ability",
+    "id": "driverAbility",
+    "options": {
+        "min": 0,
+        "max": 5,
+        "step": 1
+    },
+    "variant": "standard"
+  }, 
+  {
+    "type": "checkbox",
+    "label": "Did they play defense?",
+    "id": "defenseCheckbox"
+  },
+  {
+    "type": "textblock",
+    "label": "Other comments and notes:",
+    "id": "otherNotes"
+  },
+    //Overall Formulas
+  {
+    "type": "derived",
+    "formula": "totalAutoPoints + totalTeleopPoints",
+    "id": "totalMatchPoints"
+  },
+  {
+    "type":"derived",
+    "formula": "autoTotalBalls + teleopBallsScored",
+    "id": "totalBallsScored"
+  },
+  {
+    "type":"derived",
+    "formula": "autoTotalBallPoints + teleopBallPointsScored",
+    "id": "totalBallPoints"
+  }
+]

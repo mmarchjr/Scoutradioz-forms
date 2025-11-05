@@ -1,0 +1,384 @@
+[
+  {
+    "type": "derived",
+    "formula": "3*didStartingZone + 3*coralLvl1Auto + 4*coralLvl2Auto + 6*coralLvl3Auto + 7*coralLvl4Auto + 2*algaeProcessorAuto + 4*algaeBargeAuto",
+    "id": "totalAutoPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "3*didStartingZone + 3*coralLvl1Auto + 4*coralLvl2Auto + 6*coralLvl3Auto + 7*coralLvl4Auto + 6*algaeProcessorAuto + 0*algaeBargeAuto",
+    "id": "totalSprAuto"
+  },
+  {
+    "type": "derived",
+    "formula": "2*coralLvl1Auto + 3*coralLvl2Auto + 4*coralLvl3Auto + 5*coralLvl4Auto + 2*algaeProcessorTeleop + 4*algaeBargeTeleop",
+    "id": "totalTeleopPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "2*coralLvl1Auto + 3*coralLvl2Auto + 4*coralLvl3Auto + 5*coralLvl4Auto + 6*algaeProcessorTeleop + 0*algaeBargeTeleop",
+    "id": "totalSprTeleop"
+  },
+  {
+    "type": "derived",
+    "formula": "multiselect(endgameCageStatus, 'Out of Barge Zone', 0, 'In the Barge Zone (partial counts)', 2, 'Off the Ground (shallow cage)', 6, 'Off the Ground (deep cage)', 12, 'Failed(Still counts)', 2)",
+    "id": "totalEndgamePoints"
+  },
+  {
+    "type": "derived",
+    "formula": "totalAutoPoints + totalTeleopPoints + totalEndgamePoints",
+    "id": "contributedPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "totalSprAuto + totalSprTeleop + totalEndgamePoints",
+    "id": "sprPoints"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl1Auto + coralLvl2Auto + coralLvl3Auto + coralLvl4Auto",
+    "id": "countAutoCoral"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl1Teleop + coralLvl2Teleop + coralLvl3Teleop + coralLvl4Teleop",
+    "id": "countTeleopCoral"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl1Teleop + coralLvl1Auto",
+    "id": "countLvl1Coral"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl2Teleop + coralLvl2Auto",
+    "id": "countLvl2Coral"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl3Teleop + coralLvl3Auto",
+    "id": "countLvl3Coral"
+  },
+  {
+    "type": "derived",
+    "formula": "coralLvl4Teleop + coralLvl4Auto",
+    "id": "countLvl4Coral"
+  },
+  {
+    "type": "derived",
+    "formula": "countAutoCoral + countTeleopCoral",
+    "id": "countCoral"
+  },
+  {
+    "type": "derived",
+    "formula": "algaeProcessorAuto + algaeProcessorTeleop",
+    "id": "countProcessorAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "algaeBargeAuto + algaeBargeTeleop",
+    "id": "countBargeAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "algaeDislodgedAuto + algaeDislodgedTeleop",
+    "id": "countDislodgedAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "algaeBargeAuto + algaeProcessorAuto",
+    "id": "countAutoAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "algaeBargeAuto + algaeProcessorAuto",
+    "id": "countTeleopAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "countTeleopAlgae + countAutoAlgae",
+    "id": "countAlgae"
+  },
+  {
+    "type": "derived",
+    "formula": "countTeleopAlgae + countTeleopCoral",
+    "id": "countTeleopPieces"
+  },
+  {
+    "type": "derived",
+    "formula": "countAutoAlgae + countAutoCoral",
+    "id": "countAutoPieces"
+  },
+  {
+    "type": "header",
+    "label": "Pre-auto"
+  },
+  {
+    "type": "image",
+    "image_id": "positionDiagram"
+  },
+  {
+    "type": "checkbox",
+    "label": "Start position A",
+    "id": "startPositionA"
+  },
+  {
+    "type": "checkbox",
+    "label": "Start position B",
+    "id": "startPositionB"
+  },
+  {
+    "type": "checkbox",
+    "label": "Start position C",
+    "id": "startPositionC"
+  },
+  {
+    "type": "checkbox",
+    "label": "Start position D",
+    "id": "startPositionD"
+  },
+  {
+    "type": "checkbox",
+    "label": "Start position E",
+    "id": "startPositionE"
+  },
+  {
+    "type": "header",
+    "label": "Autonomous"
+  },
+  {
+    "type": "checkbox",
+    "label": "Did they entirely leave Starting Zone?",
+    "id": "didStartingZone"
+  },
+  {
+    "type": "subheader",
+    "label": "Auto Coral"
+  },
+  {
+    "type": "counter",
+    "label": "Coral in Level 1 (trough)",
+    "id": "coralLvl1Auto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral in Level 2",
+    "id": "coralLvl2Auto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral in Level 3",
+    "id": "coralLvl3Auto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral in Level 4",
+    "id": "coralLvl4Auto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "subheader",
+    "label": "Auto Algae"
+  },
+  {
+    "type": "counter",
+    "label": "Algae in the barge",
+    "id": "algaeBargeAuto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Algae in the processor",
+    "id": "algaeProcessorAuto",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Algae Dislodged",
+    "id": "algaeDislodgedAuto",
+    "variant": "standard",
+    "allow_negative": false
+  },
+  {
+    "type": "derived",
+    "formula": "((135 - max(onCageStart, onCageEnd)) / (countTeleopPieces)) || 160",
+    "id": "cycleTime"
+  },
+  {
+    "type": "derived",
+    "formula": "14.646447 - log(cycleTime, 1.4142136)",
+    "id": "cycleSpeedFactor"
+  },
+  {
+    "type": "spacer"
+  },
+  {
+    "type": "header",
+    "label": "Teleop"
+  },
+  {
+    "type": "checkbox",
+    "label": "Did your robot ever hit the opponents cage?",
+    "id": "hitOpponentCage"
+  },
+  {
+    "type": "subheader",
+    "label": "Teleop Coral"
+  },
+  {
+    "type": "counter",
+    "label": "Coral scored in Level 1 (trough)",
+    "id": "coralLvl1Teleop",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral scored in Level 2",
+    "id": "coralLvl2Teleop",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral scored in Level 3",
+    "id": "coralLvl3Teleop",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "counter",
+    "label": "Coral scored in Level 4",
+    "id": "coralLvl4Teleop",
+    "allow_negative": false,
+    "variant": "standard"
+  },
+  {
+    "type": "subheader",
+    "label": "Teleop Algae"
+  },
+  {
+    "type": "counter",
+    "label": "Algae in barge",
+    "id": "algaeBargeTeleop",
+    "variant": "standard",
+    "allow_negative": false
+  },
+  {
+    "type": "counter",
+    "label": "Algae in the processor",
+    "id": "algaeProcessorTeleop",
+    "variant": "standard",
+    "allow_negative": false
+  },
+  {
+    "type": "counter",
+    "label": "Algae dislodged",
+    "id": "algaeDislodgedTeleop",
+    "variant": "standard",
+    "allow_negative": false
+  },
+  {
+    "type": "multiselect",
+    "label": "Pickup from",
+    "options": [
+      "Station",
+      "Floor",
+      "Both",
+      "Not attempted"
+    ],
+    "id": "CoralPickup"
+  },
+  {
+    "type": "spacer"
+  },
+  {
+    "type": "header",
+    "label": "Endgame"
+  },
+  {
+    "type": "slider",
+    "label": "How much time was on the clock when they started climbing?",
+    "id": "onCageStart",
+    "options": {
+      "min": 0,
+      "max": 60,
+      "step": -5
+    },
+    "variant": "time"
+  },
+  {
+    "type": "slider",
+    "label": "How much time was on the clock when they stopped climbing?",
+    "id": "onCageEnd",
+    "options": {
+      "min": 0,
+      "max": 60,
+      "step": -5
+    },
+    "variant": "time"
+  },
+  {
+    "type": "multiselect",
+    "label": "Cage status of robot at end of match:",
+    "options": [
+      "Out of Barge Zone",
+      "Park (partially in counts)",
+      "Off the ground (shallow cage)",
+      "Off the ground (deep cage)",
+      "Failed(Still parked)"
+    ],
+    "id": "endgameCageStatus"
+  },
+  {
+    "type": "spacer"
+  },
+  {
+    "type": "header",
+    "label": "General"
+  },
+  {
+    "type": "multiselect",
+    "id": "defenseRating",
+    "label": "Did they play any defense? (was it efficient?)",
+    "options": [
+      "No",
+      "Yes (It was somewhat effecient)",
+      "Yes (It was efficient)"
+    ]
+  },
+  {
+    "type": "checkbox",
+    "label": "Died/Immobilized during the match (or never started)?",
+    "id": "diedDuringMatch"
+  },
+  {
+    "type": "checkbox",
+    "label": "Recovered from freeze?",
+    "id": "recoveredFromFreeze"
+  },
+  {
+    "type": "checkbox",
+    "label": "Were they ever not able to score?",
+    "id": "stoppedScoring"
+  },
+  {
+    "type": "checkbox",
+    "label": "Make good alliance partner?",
+    "id": "alliancePartner"
+  },
+  {
+    "type": "textblock",
+    "label": "Other comments and notes:",
+    "id": "otherNotes"
+  }
+]

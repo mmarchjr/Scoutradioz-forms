@@ -1,0 +1,55 @@
+[
+    {
+      "type": "header",
+      "label": "Pit Scouting Form"
+    },
+    {
+      "type": "textblock",
+      "label": "What team are you scouting?",
+      "id": "teamNumber"
+    },
+    {
+      "type": "multiselect",
+      "label": "Q1: What does this team normally do during auto?",
+      "options": [
+          "Arrive",
+          "Score a football",
+          "Score a soccer ball"
+      ],
+      "id": "q1"
+    },
+    {
+      "type": "multiselect",
+      "label": "Q2: What can this team pick up?",
+      "options": [
+          "Crates",
+          "Soccer balls",
+          "Footballs", 
+          "All types of balls",
+          "Crates and soccer balls", 
+          "Crates and footballs", 
+          "Crates and all types of balls" 
+      ],
+      "id": "q2"
+    },
+    {
+      "type": "checkbox",
+      "label": "Can this team rotate crates?",
+      "id": "q3"
+    },
+    {
+      "type": "counter",
+      "label": "On average, how many soccer balls can this team score?",
+      "id": "soccerBallsScored",
+      "allow_negative": false,
+      "variant": "standard"
+    },
+    {
+      "type": "counter",
+      "label": "On average, how many footballs can this team score?",
+      "id": "footballsScored",
+      "allow_negative": false,
+      "variant": "standard"
+    }
+  //add how many crates can be scored and auto points scored
+  ]
