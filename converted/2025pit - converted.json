@@ -1,0 +1,116 @@
+[
+    {
+        "type": "checkbox",
+        "label": "Can fit between cages?",
+        "id": "fitsbetweencages"
+    },
+    {
+        "type": "multiselect",
+        "label": "Drive base type",
+        "options": [
+            "Swerve L1",
+            "Swerve L2",
+            "Swerve L3",
+            "Swerve L4",
+            "Tank/West coast",
+            "Mecanum",
+            "Butterfy/Grasshopper",
+            "Other"
+        ],
+        "id": "driveBaseType"
+    },
+    {
+        "type": "counter",
+        "label": "# of batteries in pit",
+        "id": "batterynum",
+        "allow_negative": false,
+        "variant": "standard"
+    },
+    {
+        "type": "textblock",
+        "label": "Design process",
+        "id": "designprocess"
+    },
+    {
+        "type": "spacer"
+    },
+    {
+        "type": "header",
+        "label": "Scoring"
+    },
+    {
+        "type": "subheader",
+        "label": "Coral"
+    },
+    {
+        "type": "checkbox",
+        "label": "Ground Pickup",
+        "id": "coralfloor"
+    },
+    {
+        "type": "checkbox",
+        "label": "Coral L1",
+        "id": "corall1"
+    },
+    {
+        "type": "checkbox",
+        "label": "Coral L2",
+        "id": "corall2"
+    },
+    {
+        "type": "checkbox",
+        "label": "Coral L3",
+        "id": "corall3"
+    },
+    {
+        "type": "checkbox",
+        "label": "Coral L4",
+        "id": "corall4"
+    },
+    {
+        "type": "subheader",
+        "label": "Algae"
+    },
+    {
+        "type": "checkbox",
+        "label": "Ground Pickup",
+        "id": "algaefloor"
+    },
+    {
+        "type": "checkbox",
+        "label": "Processor Scoring",
+        "id": "algaeprocessor"
+    },
+    {
+        "type": "checkbox",
+        "label": "Net Scoring",
+        "id": "algaenet"
+    },
+    {
+        "type": "checkbox",
+        "label": "Removes Algae",
+        "id": "algaeremove"
+    },
+    {
+        "type": "spacer"
+    },
+    {
+        "type": "header",
+        "label": "Misc."
+    },
+    {
+        "type": "textblock",
+        "label": "Autos",
+        "id": "autos"
+    },
+    {
+        "type": "textblock",
+        "label": "RobotName",
+        "id": "robotname"
+    },
+    {
+        "type": "textblock",
+        "label": "Other Comments",
+        "id": "othercomments"
+    }
+]
